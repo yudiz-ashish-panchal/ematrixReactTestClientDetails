@@ -22,6 +22,7 @@ function Login() {
 
   const handleSubmit=()=>{
     console.log("hello") 
+    localStorage.setItem('password',password)
     navigate("/dashboard")
 
   }
@@ -30,7 +31,7 @@ function Login() {
     <div className='login-container'>
     <div className='login'>
       <Row className='w-100'>
-        <Col md={6} xl={12} >
+        <Col md={12} xl={12} >
         <h1>Login Page</h1>
         <label htmlFor="userName" className='mb-3'>Email Address</label>
         <Input type='text'  className='mb-3' onChange={(e)=>handleChange(e,"email")} value={username} />

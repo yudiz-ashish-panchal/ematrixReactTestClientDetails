@@ -2,16 +2,14 @@ import React from 'react'
 import { Button, Input, Label } from 'reactstrap';
 
 function Index (props) {
-  const { selectedMember, setSelectedMember, handleAddEditMember, editMode, setErrors, errors } =props 
+  const { selectedMember, setSelectedMember, handleAddEditMember, editMode} =props 
 
   const handleChange = (field, value) => {
-  
     setSelectedMember({ ...selectedMember, [field]: value });
-    setErrors({ ...errors, [field]: '' });
   };
 
   return (
-    <div className= "px-2">
+    <div className= "px-3">
       <h2>Add/Edit Member</h2>
       <div>
         <Label htmlFor="firstName">First Name:</Label>
@@ -37,7 +35,6 @@ function Index (props) {
           value={selectedMember ? selectedMember.email : ''}
           onChange={(e) => handleChange('email', e.target.value)}
         />
-        {errors && <p>{errors?.email}</p>}
 
         <Label htmlFor="mobile">Mobile Number:</Label>
         <Input
@@ -46,7 +43,6 @@ function Index (props) {
           value={selectedMember ? selectedMember.mobile : ''}
           onChange={(e) => handleChange('mobile', e.target.value)}
         />
-        {errors && <p>{errors?.mobile}</p>}
 
         <Button onClick={() => handleAddEditMember(selectedMember)}>
           {editMode ? 'Edit Member' : 'Add Member'}

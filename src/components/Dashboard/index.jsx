@@ -1,23 +1,26 @@
-import React, { useState } from 'react'
-import GroupManager from '../groupManager/Index'
-import MemberManagement from '../MamberManagement/Index'
+import React, { useEffect, useState } from 'react'
+
 import { Col, Row } from 'reactstrap'
+import { useNavigate,Link } from 'react-router-dom'
 
 function Dashboard() {
+  const navigate = useNavigate()
+  const token = localStorage.getItem("password")
+  console.log('token', token)
 
 
+  useEffect(()=>{
+
+    if (!token) {
+      console.log("ete")
+      navigate("/auth/login")
+    }
+  },[token])
   return (
     <>
       <h1>Dashboard page</h1> 
-
-      <Row>
-        <Col md={4} xl={4}>
-        <GroupManager />
-        </Col>
-        <Col md={8} xl={8}>
-          <MemberManagement />
-        </Col>
-      </Row>
+      <Link to="/client-Details"> go to Client Page</Link>
+     
       </>
   )
 }

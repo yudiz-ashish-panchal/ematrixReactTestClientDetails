@@ -11,10 +11,7 @@ const MemberManagement = ({ groupID }) => {
     mobile: ''
   });
 
-  const [errors, setErrors] = useState({
-    email: '',
-    mobile: ''
-  });
+
   const [editMode, setEditMode] = useState(false);
   const [openAddForm, setOpenAddForm] = useState(false)
   const [members, setMembers] = useState([]);
@@ -66,7 +63,7 @@ const MemberManagement = ({ groupID }) => {
   return (
     <>
       {loading && <h1>Loading</h1>}
-      <div className='client-Details'>
+      <div className='client-Details px-3'>
         <h2>Client Details</h2>
         <Button color="primary" onClick={() => setOpenAddForm(!openAddForm)}>{openAddForm ? "Add Form " : "close Form"}</Button>
         {openAddForm && <FormComponent
@@ -74,8 +71,7 @@ const MemberManagement = ({ groupID }) => {
           setSelectedMember={setSelectedMember}
           handleAddEditMember={handleAddEditMember}
           editMode={editMode}
-          errors={errors}
-          setErrors={setErrors}
+
         />}
         <Table>
           <thead>
