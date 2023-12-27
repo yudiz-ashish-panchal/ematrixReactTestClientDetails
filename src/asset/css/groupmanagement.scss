@@ -1,0 +1,17 @@
+.group-management{
+  border: 1px solid black;
+  .input-div{
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 10px;
+  }
+}
+.listing{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  
+
+}
